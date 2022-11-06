@@ -1,0 +1,13 @@
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\RayRa\source\repos\Webshop_HelloOrganic\DataAccess\bin\Debug\net6.0\DataAccess.dll.config

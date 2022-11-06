@@ -1,17 +1,12 @@
 ﻿using DataAccess.DTO;
-using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
 	public class CustomerDAL
 	{
-		//string connectionString = ConfigurationManager.ConnectionStrings['sql'].ConnectionString;
-		string connectionString;
+		string connectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
 
 		public List<CustomerDTO> Read()
 		{
@@ -21,7 +16,7 @@ namespace DataAccess
 			{
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
-					string sqlQuery = "select * from TABLE";
+					string sqlQuery = "SELECT * FROM Customer";
 					using (SqlCommand command = new SqlCommand(sqlQuery, con))
 					{
 						con.Open();
@@ -30,12 +25,12 @@ namespace DataAccess
 						while (reader.Read())
 						{
 							int customerId = reader.GetInt32(0);
-							string firstName = reader.GetString(0);
-							string lastName = reader.GetString(1);
-							string address = reader.GetString(2);
-							string city = reader.GetString(3);
-							string postalCode = reader.GetString(4);
-							string phone = reader.GetString(5);
+							string firstName = reader.GetString(1);
+							string lastName = reader.GetString(2);
+							string address = reader.GetString(3);
+							string city = reader.GetString(4);
+							string postalCode = reader.GetString(5);
+							string phone = reader.GetString(6);
 
 							CustomerDTO customer = new CustomerDTO();
 							customer.CustomerId = customerId;
@@ -47,7 +42,6 @@ namespace DataAccess
 							customer.Phone = phone;
 
 							result.Add(customer);
-
 						}
 					}
 				}
@@ -67,10 +61,15 @@ namespace DataAccess
 			{
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
-					string sqlQuery = "insert into TABLE (COLUMN, COLUMN) VALUES (@columnValues, @columnValues)";
+					string sqlQuery = "INSERT INTO Customer (firstName, lastName, homeAddress, city, postalCode, phone) VALUES (@firstNameValues, @lastNameValues, @homeAddressValues, @cityValues, @postalCodeValues, @phoneValues)";
 					using (SqlCommand command = new SqlCommand(sqlQuery, con))
 					{
 						command.Parameters.AddWithValue("@firstNameValues", customer.FirstName);
+						command.Parameters.AddWithValue("@lastNameValues", customer.LastName);
+						command.Parameters.AddWithValue("@homeAddressValues", customer.Address);
+						command.Parameters.AddWithValue("@cityValues", customer.City);
+						command.Parameters.AddWithValue("@postalCodeValues", customer.PostalCode);
+						command.Parameters.AddWithValue("@phoneValues", customer.Phone);
 						con.Open();
 
 						affectedRows = command.ExecuteNonQuery();
@@ -101,10 +100,10 @@ namespace DataAccess
 			{
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
-					string sqlQuery = "delete from TABLE where COLUMN = @columnValues";
+					string sqlQuery = "delete from Customer where CustomerId = @customerIdValues";
 					using (SqlCommand command = new SqlCommand(sqlQuery, con))
 					{
-						command.Parameters.AddWithValue("@firstNameValues", customer.FirstName);
+						command.Parameters.AddWithValue("@customerIdValues", customer.CustomerId);
 						con.Open();
 
 						affectedRows = command.ExecuteNonQuery();
@@ -135,10 +134,16 @@ namespace DataAccess
 			{
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
-					string sqlQuery = "Update TABLE set COLUMN = @columnValues WHERE column = @columnValues";
+					string sqlQuery = "Update Customer SET firstName=@firstNameValues, lastName=@lastNameValues, homeAddress=@homeAddressValues, city=@cityValues, postalCode=@postalCodeValues, phone=@phoneValues  WHERE CustomerId = @customerIdValues";
 					using (SqlCommand command = new SqlCommand(sqlQuery, con))
 					{
+						command.Parameters.AddWithValue("@customerIdValues", customer.CustomerId);
 						command.Parameters.AddWithValue("@firstNameValues", customer.FirstName);
+						command.Parameters.AddWithValue("@lastNameValues", customer.LastName);
+						command.Parameters.AddWithValue("@homeAddressValues", customer.Address);
+						command.Parameters.AddWithValue("@cityValues", customer.City);
+						command.Parameters.AddWithValue("@postalCodeValues", customer.PostalCode);
+						command.Parameters.AddWithValue("@phoneValues", customer.Phone);
 						con.Open();
 
 						affectedRows = command.ExecuteNonQuery();
