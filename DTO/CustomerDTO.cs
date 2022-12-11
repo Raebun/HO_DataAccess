@@ -10,13 +10,6 @@ namespace DataAccess.DTO
 {
 	public class CustomerDTO
 	{
-		// Enum
-		enum CountryList
-		{
-			[Display(Name = "The Netherlands")] THE_NETHERLANDS,
-			[Display(Name = "Belgium")] BELGIUM
-		}
-
 		// Properties
 		private int customerId;
 		private string firstName;
@@ -24,8 +17,9 @@ namespace DataAccess.DTO
 		private string address;
 		private string city;
 		private string postalCode;
-		private CountryList country;
 		private string phone;
+		private OrderDTO order;
+		private ShoppingCartDTO shoppingCart;
 
 		// Getters and setters
 		public int CustomerId { get { return customerId; } set { customerId = value; } }
@@ -34,7 +28,8 @@ namespace DataAccess.DTO
 		public string Address { get { return address; } set { address = value; } }
 		public string City { get { return city; } set { city = value; } }
 		public string PostalCode { get { return postalCode; } set { postalCode = value; } }
-		// country
 		public string Phone { get { return phone; } set { phone = value; } }
+		public OrderDTO Order { get { return order; } set { order = value; } }
+		public ShoppingCartDTO ShoppingCart { get { return shoppingCart; } set { shoppingCart = value; } }
 	}
 }
